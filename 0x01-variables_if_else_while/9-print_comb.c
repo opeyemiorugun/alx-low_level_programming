@@ -13,7 +13,7 @@ int main(void)
 
 	while (letter > 10)
 	{
-		putchar(letter);
+		putchar(48 + letter);
 		if (letter == 9)
 			break;
 		putchar(',');
