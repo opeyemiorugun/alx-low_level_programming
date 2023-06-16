@@ -11,7 +11,7 @@ int main(void)
 	int letter = 0;
 
 
-	while (letter > 10)
+	while (letter < 10)
 	{
 		putchar(48 + letter);
 		if (letter == 9)
