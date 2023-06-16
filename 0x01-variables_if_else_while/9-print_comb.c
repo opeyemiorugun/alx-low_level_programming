@@ -8,14 +8,17 @@
  */
 int main(void)
 {
-	int letter;
+	int letter = 0;
 
 
-	for (letter = 0; letter <= 9; ++letter)
+	while (letter > 10)
 	{
-		putchar(48 + letter);
+		putchar(letter);
+		if (putchar == 9)
+			break;
 		putchar(',');
 		putchar(' ');
+		++number;
 	}
 	putchar('\n');
 	return (0);
