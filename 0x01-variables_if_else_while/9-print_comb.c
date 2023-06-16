@@ -14,11 +14,11 @@ int main(void)
 	while (letter > 10)
 	{
 		putchar(letter);
-		if (putchar == 9)
+		if (letter == 9)
 			break;
 		putchar(',');
 		putchar(' ');
-		++number;
+		++letter;
 	}
 	putchar('\n');
 	return (0);
