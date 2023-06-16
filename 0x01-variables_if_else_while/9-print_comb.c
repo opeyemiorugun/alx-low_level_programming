@@ -13,7 +13,7 @@ int main(void)
 
 	for (letter = 0; letter <= 9; ++letter)
 	{
-		putchar(letter);
+		putchar(48 + letter);
 		putchar(',');
 		putchar(' ');
 	}
