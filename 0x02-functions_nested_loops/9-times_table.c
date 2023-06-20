@@ -22,6 +22,7 @@ void times_table(void)
 			{
 				_putchar(e / 10 + 48);
 				_putchar(e % 10 + 48);
+			}
 			else if (d != 0)
 			{
 				_putchar(' ');
@@ -30,8 +31,10 @@ void times_table(void)
 			else
 				_putchar(e + 48);
 			if (d != 9)
+			{
 				_putchar(',');
 				_putchar(' ');
+			}
 			++d;
 		}
 		_putchar('\n');
