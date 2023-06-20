@@ -58,7 +58,7 @@ void digit_to_char(int number)
 	int x;
 
 
-	if (number >= 10 && number < 10)
+	if (number >= 10 && number < 100)
 	{
 		_putchar(number / 10 + 48);
 		_putchar(number % 10 + 48);
