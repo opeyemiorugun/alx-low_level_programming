@@ -3,6 +3,8 @@
 /* betty style doc for function main goes there */
 /**
  * _islower -Checks for lowercase characters
+ *
+ * Return: 1 if lowercase and 0 if otherwise
  */
 int _islower(int c)
 {
