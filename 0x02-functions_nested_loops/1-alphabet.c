@@ -1,5 +1,4 @@
 /* more headers goes there */
-#include <stdio.h>
 #include "main.h"
 /* betty style doc for function main goes there */
 /**
@@ -23,7 +22,7 @@ void print_alphabet(void)
 
 
 	for (letter = 'a'; letter <= 'z'; ++letter)
-		putchar(letter);
-	putchar('\n');
+		_putchar(letter);
+	_putchar('\n');
 }
 
