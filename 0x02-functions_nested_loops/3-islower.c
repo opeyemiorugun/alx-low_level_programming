@@ -3,6 +3,7 @@
 /* betty style doc for function main goes there */
 /**
  * _islower -Checks for lowercase characters
+ * @c: 1st argument
  *
  * Return: 1 if lowercase and 0 if otherwise
  */
