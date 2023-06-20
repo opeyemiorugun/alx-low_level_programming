@@ -8,7 +8,7 @@
  */
 void print_to_98(int n)
 {
-	int pos, x;
+	int dec, x;
 
 
 	if (n <= 98)
@@ -53,7 +53,7 @@ void print_to_98(int n)
  *
  * Return: character
  */
-int digit_to_char(int number)
+void digit_to_char(int number)
 {
 	int x;
 
@@ -80,7 +80,7 @@ int digit_to_char(int number)
  *
  * Return: a comma
  */
-int comma_in_middle(int number, int limit)
+void comma_in_middle(int number, int limit)
 {
 	if (number != limit)
 	{
@@ -94,7 +94,7 @@ int comma_in_middle(int number, int limit)
  *
  * Return: Returns negated value
  */
-int negative(int number)
+void negative(int number)
 {
 	_putchar('-');
 	digit_to_char(number);
