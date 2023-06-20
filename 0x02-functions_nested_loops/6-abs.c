@@ -3,15 +3,12 @@
 /* betty style doc for function main goes there */
 /**
  * _abs -prints the absolute value of the number
- * @int: 1st argument
+ * @n: 1st argument
  *
  * Return: the absolute value of a value.
  */
-int _abs(int)
+int _abs(int n)
 {
-	int n;
-
-
 	if (n < 0)
 	{
 		n = n * -1;
