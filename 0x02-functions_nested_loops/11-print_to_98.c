@@ -49,13 +49,16 @@ void print_to_98(int n)
 }
 /**
  * digit_to_char -Convert numbers to character
- * @number -1st argument
+ * @number: 1st argument
  *
+ * Return: character
  */
 int digit_to_char(int number)
 {
 	int x;
-	if (number >= 10 && number < 100)
+
+
+	if (number >= 10 && number < 10)
 	{
 		_putchar(number / 10 + 48);
 		_putchar(number % 10 + 48);
@@ -72,9 +75,10 @@ int digit_to_char(int number)
 }
 /**
  * comma_in_middle -Inserts comma in the midst of list
- * @number -1st argument
- * @limit -2nd argument
+ * @number: 1st argument
+ * @limit: 2nd argument
  *
+ * Return: a comma
  */
 int comma_in_middle(int number, int limit)
 {
@@ -86,9 +90,13 @@ int comma_in_middle(int number, int limit)
 }
 /**
  * negative -Negates a number
- * @number -1st argument
+ * @number: 1st argument
  *
+ * Return: Returns negated value
  */
-int negative('-');
+int negative(int number)
 {
+	_putchar('-');
 	digit_to_char(number);
+}
+
