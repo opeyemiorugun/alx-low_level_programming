@@ -1,6 +1,6 @@
 /* more headers goes there */
 #include <stdio.h>
-void print_alphabet(void);
+#include "main.h"
 /* betty style doc for function main goes there */
 /**
  * main -Alphabets Lowercase Only
