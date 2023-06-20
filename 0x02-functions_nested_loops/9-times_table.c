@@ -20,20 +20,23 @@ void times_table(void)
 			e = c * d;
 			f = e / 10 + 48;
 
-			if (f == '0' && d > 0 && c >= 0)
-				_putchar(' ');
-			else if (d == 0 && c >= 0)
-				;
+			if (e > 9)
+			{
+				_putchar(e / 10 + 48);
+				_putchar(e % 10 + 48);
+			else if (d != 0)
+			{
+				putchar(' ');
+				putchar(e + '0');
+			}
 			else
-				_putchar(f);
-			_putchar(e % 10 + 48);
+				_putchar(e + 48);
 			if (d != 9)
 				_putchar(',');
-			_putchar(' ');
-			if (d == 9)
-				_putchar('\n');
+				_putchar(' ');
 			++d;
 		}
+		_putchar('\n');
 		++c;
 	}
 }
