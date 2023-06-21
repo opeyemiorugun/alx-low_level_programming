@@ -15,7 +15,7 @@ int main(void)
 	long sum = x + y;
 
 
-	printf("%d, %d, ", x, y);
+	printf("%lu, %lu, ", x, y);
 	for (i = 3; i <= 50; ++i)
 	{
 		printf("%lu", sum);
@@ -37,7 +37,7 @@ void comma_in_middle(int number, int limit)
 {
 	if (number != limit)
 	{
-		_putchar(',');
-		_putchar(' ');
+		putchar(',');
+		putchar(' ');
 	}
 }
