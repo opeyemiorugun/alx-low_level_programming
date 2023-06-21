@@ -1,57 +1,41 @@
 #include <stdio.h>
-void comma_in_middle(int number, int limit);
-/* betty style doc for function main goes there */
+
 /**
- * main - This is a description
- *
- * Description: 'Fibonacci series'
- *
- * Return: Always 0 (Success)
+ * main - finds and prints the first 98 Fibonacci numbers,
+ * starting with 1 and 2
+ * followed by a new line
+ * Return: ALways 0 (Success)
  */
 int main(void)
 {
-	int i;
-	long x = 1, y = 2;
-	long sum = x + y;
-	long x_head, x_tail, y_head, y_tail;
-	long overflow, sum_tail, sum_head;
+	unsigned long int i, j, k, j1, j2, k1, k2;
 
+	j = 1;
+	k = 2;
 
-	printf("%lu, %lu, ", x, y);
-	for (i = 3; i <= 98; ++i)
+	printf("%lu", j);
+
+	for (i = 1; i < 91; i++)
 	{
-		if (i >= 93)
-		{
-			x_head = x / 100000000;
-			x_tail = x % 100000000;
-			y_head = y / 100000000;
-			y_tail = y % 100000000;
-			overflow = (x_tail + y_tail) / 10;
-			sum_tail = (x_tail + y_tail) % 10;
-			sum_head = (x_head + y_head + overflow);
-			printf("%lu%lu", sum_head, sum_tail);
-		}
-		else
-			printf("%lu", sum);
-		x = y;
-		y = sum;
-		sum = x + y;
-		comma_in_middle(i, 98);
+		printf(", %lu", k);
+		k = k + j;
+		j = k - j;
 	}
+	j1 = j / 1000000000;
+	j2 = j % 1000000000;
+	k1 = k / 1000000000;
+	k2 = k % 1000000000;
+
+	for (i = 92; i < 99; ++i)
+	{
+		printf(", %lu", k1 + (k2 / 1000000000));
+		printf("%lu", k2 % 1000000000);
+		k1 = k1 + j1;
+		j1 = k1 - j1;
+		k2 = k2 + j2;
+		j2 = k2 - j2;
+	}
+	printf("\n");
+
 	return (0);
-}
-/**
- * comma_in_middle -Inserts comma in the midst of list
- * @number: 1st argument
- * @limit: 2nd argument
- *
- * Return: a comma
- */
-void comma_in_middle(int number, int limit)
-{
-	if (number != limit)
-	{
-		putchar(',');
-		putchar(' ');
-	}
 }
