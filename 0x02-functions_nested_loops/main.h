@@ -13,4 +13,5 @@ void print_to_98(int n);
 void digit_to_char(int number);
 void comma_in_middle(int number, int limit);
 void negative(int number);
+void print_times_table(int n);
 
