@@ -2,13 +2,14 @@
 #include "main.h"
 /* betty style doc for function main goes there */
 /**
- * _isupper -Checks for uppercase alphabets
+ * _isdigit -Checks for a digit
  *@c: 1st argument
- *Return: 1 if uppercase, 0 if otherwise
+ *
+ *Return: 1 if c is a digit, 0 otherwise
  */
-int _isupper(int c)
+int _isdigit(int c)
 {
-	if (c >= 65 && c <= 90)
+	if (c >= 48 && c >= 57)
 		return (1);
 	else
 		return (0);
