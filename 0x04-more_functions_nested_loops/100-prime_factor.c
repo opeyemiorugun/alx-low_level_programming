@@ -8,7 +8,7 @@
  */
 int main(void)
 {
-	float divider, number, remainde = 1;
+	double divider, number, remainde = 1;
 	long largest = 0;
 
 	number = 612852475143;
@@ -22,7 +22,7 @@ int main(void)
 			largest = divider;
 		}
 		number = remainde;
-		if (fmod(remainde, 2) != 0 || remainde == 2 || number < divider)
+		if (fmod(remainde, 2) != 1 || remainde == 2 || number < divider)
 			break;
 	}
 	printf("%ld\n", largest);
