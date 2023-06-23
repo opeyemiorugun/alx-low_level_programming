@@ -1,4 +1,5 @@
 #include <stdio.h>
+void print_number(int n);
 /**
  * print_number -function that prints an integer.
  * @n: 1st argument
@@ -13,7 +14,7 @@ int main(void)
 }
 void print_number(int n)
 {
-	int x = 10, count = 0, reverse = 0;
+	int count = 0, reverse = 0;
 	int s, digit, n1;
 
 	s = n;
