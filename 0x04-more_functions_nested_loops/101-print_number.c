@@ -25,7 +25,7 @@ void print_number(int n)
 	digit = reverse;
 	while (count--)
 	{
-		if (r < 0)
+		if (digit < 0)
 		{
 			digit = digit * -1;
 			_putchar('-');
