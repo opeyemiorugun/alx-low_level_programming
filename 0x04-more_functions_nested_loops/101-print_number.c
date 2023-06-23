@@ -28,7 +28,7 @@ void print_number(int n)
 		if (digit < 0)
 		{
 			digit = digit * -1;
-			_putchar('-);
+			_putchar('-');
 		}
 		_putchar(digit % 10 + 48);
 		digit = digit / 10;
