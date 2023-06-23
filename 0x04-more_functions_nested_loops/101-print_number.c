@@ -10,8 +10,8 @@ void print_number(int n)
 	int count = 0, reverse = 0;
 	int s, digit, n1;
 
-	s = n * -1;
-	n1 = n * -1;
+	s = n;
+	n1 = n;
 	do {
 		s /= 10;
 		++count;
@@ -25,7 +25,7 @@ void print_number(int n)
 	digit = reverse;
 	while (count--)
 	{
-		if (n < 0)
+		if (r < 0)
 		{
 			digit = digit * -1;
 			_putchar('-');
