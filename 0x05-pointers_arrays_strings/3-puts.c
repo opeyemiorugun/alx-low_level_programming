@@ -10,7 +10,7 @@ void _puts(char *str)
 
 	while (i > -1)
 	{
-		if (s[i] == '\0')
+		if (str[i] == '\0')
 			break;
 		_putchar(str[i]);
 		i++;
