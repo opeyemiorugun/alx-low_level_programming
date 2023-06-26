@@ -8,7 +8,7 @@ void puts_half(char *str)
 	int len, i = 0, k, p;
 
 	len = _strlen(str);
-	if (i % 2 == 0)
+	if (len % 2 == 0)
 	{
 		for (k = len / 2; k <= len && str[k] != '\0'; k++)
 		{
@@ -18,7 +18,7 @@ void puts_half(char *str)
 	else
 	{
 		p = (len - 1) / 2;
-		for (k = p; k <= len; k++)
+		for (k = p; k <= len && str[k] != '\0'; k++)
 		{
 			_putchar(str[k]);
 		}
