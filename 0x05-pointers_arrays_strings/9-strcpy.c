@@ -14,5 +14,6 @@ char *_strcpy(char *dest, char *src)
 	{
 		*(dest + l) = *(src + l);
 	}
+	*(dest + l) = '\0';
 	return (dest);
 }
