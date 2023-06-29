@@ -29,7 +29,9 @@ char *_strcat(char *dest, char *src)
 			m++;
 		}
 		else
+		{
 			;
+		}
 		l++;
 	}
 	return (dest);
