@@ -20,6 +20,7 @@ char *_strncat(char *dest, char *src, int n)
 	{
 		;
 	}
+	q = q - 1;
 	n = n - 1;
 	r = l + n;
 	l = 0;
