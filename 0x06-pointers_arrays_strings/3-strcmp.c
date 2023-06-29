@@ -11,9 +11,13 @@ int _strcmp(char *s1, char *s2)
 	int i, j = 0, k = 0;
 
 	while (s1[j])
+	{
 		j++;
+	}
 	while (s2[k])
+	{
 		k++;
+	}
 	for (i = 0; i <= j || i <= k; i++)
 	{
 		if (s1[j - 1] == s2[k - 1])
