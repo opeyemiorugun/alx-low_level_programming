@@ -23,7 +23,7 @@ char *_strncat(char *dest, char *src, int n)
 	n = n - 1;
 	r = l + n;
 	l = 0;
-	for (i = 0; i <= r && str[m] != '\0'; i++)
+	for (i = 0; i <= r && src[m] != '\0'; i++)
 	{
 		if ((dest[l] == '\0' || i > p) && n >= 0 && m < q)
 		{
