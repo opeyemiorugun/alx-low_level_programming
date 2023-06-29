@@ -22,7 +22,7 @@ int _strcmp(char *s1, char *s2)
 	{
 		if (s1[j - 1] == s2[k - 1])
 		{
-			c = 0; 
+			c = 0;
 		}
 		else if (s1[i] > s2[i] || s1[i] < s2[i])
 		{
