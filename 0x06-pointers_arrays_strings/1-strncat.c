@@ -25,19 +25,15 @@ char *_strncat(char *dest, char *src, int n)
 	l = 0;
 	for (i = 0; i <= r && src[m] != '\0'; i++)
 	{
-		if ((dest[l] == '\0' || i > p) && n >= 0 && m < q)
+		if ((dest[l] == '\0' || i > p) && n >= 0)
 		{
 			*(dest + i) = *(src + m);
 			m++;
 			n--;
 		}
-		else
-		{
-			;
-		}
 		l++;
 	}
-	dest[i] = '\0';
+	dest[i + 1] = '\0';
 	return (dest);
 }
 
