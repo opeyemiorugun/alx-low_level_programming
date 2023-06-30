@@ -27,6 +27,10 @@ char *cap_string(char *s)
 		{
 			s[i + 1] = uppercase(s[i + 1]);
 		}
+		if (i == 0)
+		{
+			s[i] = uppercase(s[i]);
+		}
 		i++;
 	}
 	return (s);
