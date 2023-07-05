@@ -7,17 +7,18 @@
  */
 int real_prime_number(int n, int c)
 {
-	if ((c <= n) && (n % c > 0))
+	if (n % c == 0)
 	{
-		if (real_prime_number(n, c + 1) == n)
+		if (n == c)
 		{
 			return (1);
 		}
+		else
+		{
+			return (0);
+		}
 	}
-	else if (n % c == 0 && n != c)
-	{
-		return (0);
-	}
+	return (real_prime_number(n, 2));
 }
 /**
  * is_prime_number -function to find prime number
