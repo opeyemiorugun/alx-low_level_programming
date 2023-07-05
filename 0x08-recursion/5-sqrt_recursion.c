@@ -16,7 +16,7 @@ int real_sqrt_recursion(int n, int c)
 	{
 		return (-1);
 	}
-	real_sqrt_recursion(n, c + 1);
+	return (real_sqrt_recursion(n, c + 1));
 }
 /**
  * _sqrt_recursion -displays the square root of a function.
