@@ -18,7 +18,7 @@ int real_prime_number(int n, int c)
 			return (0);
 		}
 	}
-	return (real_prime_number(n, 2));
+	return (real_prime_number(n, c + 1));
 }
 /**
  * is_prime_number -function to find prime number
