@@ -9,6 +9,7 @@
 int main(int argc, char *argv[])
 {
 	int i, sum = 0;
+	char *ch;
 
 	for (i = 1; i < argc; i++)
 	{
@@ -17,7 +18,7 @@ int main(int argc, char *argv[])
 			printf("Error\n");
 			return (1);
 		}
-		sum += atoi(argv[i]);
+		sum += strtol(argv[i], &ch, 10);
 	}
 	printf("%d\n", sum);
 	return (0);
