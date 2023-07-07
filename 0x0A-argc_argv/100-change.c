@@ -35,8 +35,8 @@ int main(int argc, char *argv[])
 				y -= 25;
 			change += 1;
 		}
-	}
 	printf("%d\n", change);
+	}
 	return (0);
 }
 
