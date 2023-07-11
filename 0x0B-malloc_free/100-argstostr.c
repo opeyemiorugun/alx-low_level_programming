@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
+#include <string.h>
 /**
  * argstostr -concatenates all arguments of your program
  * @ac: length of the program's argument
@@ -8,13 +9,16 @@
  */
 char *argstostr(int ac, char **av)
 {
-	int i, j = 0;
+	int i, j = 0, len = 0;
 	char *p;
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
-
-	p = (char *) malloc((ac + 1) * sizeof(char));
+	for (i = 0; i < ac; i++)
+	{
+		len += strlen(av[i]);
+	}
+	p = (char *) malloc(len * sizeof(char));
 
 	if (p == NULL)
 		return (NULL);
