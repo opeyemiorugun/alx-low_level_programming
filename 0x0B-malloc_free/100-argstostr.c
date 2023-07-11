@@ -13,13 +13,8 @@ char *argstostr(int ac, char **av)
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
-	for (i = 0; i < ac; i++)
-	{
-		while (*(*av + k) != '\0')
-			k++;
-	}
 
-	p = (char *) malloc((k + ac) * sizeof(char));
+	p = (char *) malloc((ac + 1) * sizeof(char));
 
 	if (p == NULL)
 		return (NULL);
