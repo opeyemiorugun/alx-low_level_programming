@@ -6,3 +6,5 @@ void free_grid(int **grid, int height);
 int _putchar(char c);
 char *argstostr(int ac, char **av);
 char **strtow(char *str);
+int count_d_char(int m, char *str)
+int count_word(char *str);
