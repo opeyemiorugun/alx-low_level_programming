@@ -10,7 +10,7 @@ char **strtow(char *str)
 {
 	int j = 0, len = 0, k = 0;
 	char **p;
-	int flag = 0, len_wrd;
+	int flag = 0, len_word;
 
 	len  = count_word(str);
 
@@ -53,7 +53,8 @@ char **strtow(char *str)
  */
 int count_word(char *str)
 {
-	int i = 0, flag = 0, len = 0;
+	unsigned int i = 0;
+	int flag = 0, len = 0;
 
 	while (str[i] != '\0')
 	{
