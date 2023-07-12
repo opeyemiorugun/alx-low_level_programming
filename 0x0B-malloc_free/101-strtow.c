@@ -69,12 +69,13 @@ char **strtow(char *str)
 	p = (char **) malloc(len * sizeof(char));
 	if (p == NULL)
 	{
+		free(p);
 		return (NULL);
 	}
 	for (j = 0; j < len; j++)
 	{
 		len_word = count_d_char(k, str);
-		p[j] = (char *) malloc((len_word + 1) * sizeof(char));
+		p[j] = (char *) malloc((len_word + 1) * sizeof(int));
 		if (p[j] == NULL)
 		{
 			return (NULL);
