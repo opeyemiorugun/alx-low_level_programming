@@ -63,6 +63,7 @@ char **strtow(char *str)
 	int j = 0, len = 0, k = 0;
 	char **p;
 	int flag = 0, len_word;
+
 	if (str == NULL)
 		return (NULL);
 	len  = count_word(str);
