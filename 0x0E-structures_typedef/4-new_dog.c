@@ -29,27 +29,29 @@ int _strlen(char *s)
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *ptr_dog;
-	int len, len2;
 
 	if (!name || !owner || age < 0)
-	{
 		return (NULL);
-	}
 
 	ptr_dog = (dog_t *) malloc(sizeof(struct dog));
 	if (ptr_dog == NULL)
 		return (NULL);
 
-	len = _strlen(name) + 1;
-	ptr_dog->name = malloc(sizeof(len));
+	ptr_dog->name = malloc(sizeof(_strlen(name) + 1));
 	if (ptr_dog->name == NULL)
+	{
+		free(ptr_dog);
 		return (NULL);
+	}
 	ptr_dog->name = name;
 
-	len2 = _strlen(owner) + 1;
-	ptr_dog->owner = malloc(sizeof(len2));
+	ptr_dog->owner = malloc(sizeof(_strlen(owner) + 1));
 	if (ptr_dog->owner == NULL)
+	{
+		free(ptr_dog->name);
+		free(ptr_dog);
 		return (NULL);
+	}
 	ptr_dog->owner = owner;
 
 	ptr_dog->age = age;
