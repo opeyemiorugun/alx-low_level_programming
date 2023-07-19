@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 		exit(100);
 	}
 
-	if (!get_op_func(sign) || *sign == '\0')
+	if (!get_op_func(sign) || sign[1] != '\0')
 	{
 		printf("Error\n");
 		exit(99);
