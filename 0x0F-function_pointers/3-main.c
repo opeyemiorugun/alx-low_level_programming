@@ -8,7 +8,7 @@
  */
 int main(int argc, char *argv[])
 {
-	int result, num1, num2;
+	int num1, num2;
 	char *sign;
 
 	num1 = atoi(argv[1]);
@@ -26,12 +26,11 @@ int main(int argc, char *argv[])
 		exit(100);
 	}
 
-	result = get_op_func(sign)(num1, num2);
-	if (!result)
+	if (!get_op_func(sign) || *sign == '\0')
 	{
-		printf("Error2\n");
+		printf("Error\n");
 		exit(99);
 	}
-	printf("%d\n", result);
+	printf("%d\n", get_op_func(sign)(num1, num2));
 	return (0);
 }
