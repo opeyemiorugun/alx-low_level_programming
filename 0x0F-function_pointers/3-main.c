@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(100);
 	}
-	
+
 	result = get_op_func(sign)(num1, num2);
 	if (!result)
 	{
