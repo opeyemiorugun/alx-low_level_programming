@@ -20,21 +20,24 @@ void print_all(const char * const format, ...)
 		{
 		case 'c':
 			printf("%c", va_arg(list_all, int));
+			flag = 1;
 			break;
 		case 'i':
 			printf("%d", va_arg(list_all, int));
+			flag = 1;
 			break;
 		case 'f':
 			printf("%f", va_arg(list_all, double));
+			flag = 1;
 			break;
 		case 's':
 			string = va_arg(list_all, char *);
 			if (!string)
 				string = ("(nil)");
 			printf("%s", string);
+			flag = 1;
 			break;
 		default:
-			flag = 1;
 			break;
 		}
 	       i++;
