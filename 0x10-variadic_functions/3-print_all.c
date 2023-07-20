@@ -6,7 +6,7 @@
  */
 void print_all(const char * const format, ...)
 {
-	unsigned int i = 0;
+	unsigned int i = 0, flag;
 	char *string, *separator = ", ";
 	va_list list_all;
 
@@ -14,7 +14,7 @@ void print_all(const char * const format, ...)
 
 	while (format && format[i])
 	{
-		if (i > 0)
+		if (i > 0 && flag == 1)
 			printf("%s", separator);
 		switch (format[i])
 		{
@@ -37,6 +37,7 @@ void print_all(const char * const format, ...)
 			printf("%s", string);
 			break;
 		default:
+			flag = 1;
 			break;
 		}
 	       i++;
