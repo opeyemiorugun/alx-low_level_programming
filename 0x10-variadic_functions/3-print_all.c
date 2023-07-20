@@ -11,7 +11,11 @@ void print_all(const char * const format, ...)
 	va_list list_all;
 
 	va_start(list_all, format);
-
+	if (!format)
+	{
+		printf("\n");
+		exit(34);
+	}
 	while (format && format[i])
 	{
 		if (i > 0 && flag == 1)
