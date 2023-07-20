@@ -7,8 +7,7 @@
 void print_all(const char * const format, ...)
 {
 	unsigned int i = 0, len  = 0;
-	char *string;
-	const char *separator = ", ";
+	char *string, *separator = ", ";
 	va_list list_all;
 
 	va_start(list_all, format);
@@ -32,9 +31,11 @@ void print_all(const char * const format, ...)
 		case 's':
 			string = va_arg(list_all, char *);
 			if (!string)
+			{
 				printf("(!nil)");
-			else
-				printf("%s", string);
+				break;
+			}
+			printf("%s", string);
 			break;
 		default:
 			break;
