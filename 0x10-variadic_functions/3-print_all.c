@@ -6,17 +6,16 @@
  */
 void print_all(const char * const format, ...)
 {
-	unsigned int i = 0, len  = 0;
+	unsigned int i = 0;
 	char *string, *separator = ", ";
 	va_list list_all;
 
 	va_start(list_all, format);
-	while (format[len] != '\0' && format)
+
+	while (format && format[i])
 	{
-		len++;
-	}
-	while (i < len && format)
-	{
+		if (i > 0)
+			printf("%s", separator);
 		switch (format[i])
 		{
 		case 'c':
@@ -40,8 +39,6 @@ void print_all(const char * const format, ...)
 		default:
 			break;
 		}
-		if (i < (len - 1))
-			printf("%s", separator);
 	       i++;
 	}
 	printf("\n");
