@@ -60,19 +60,17 @@ int count_d_char(int m, char *str)
  */
 char **strtow(char *str)
 {
-	int j = 0, len = 0, k = 0;
+	int j = 0, len = 0, k = 0, i;
 	char **p;
 	int flag = 0, len_word;
 
 	if (str == NULL)
 		return (NULL);
 	len  = count_word(str);
-
-	p = (char **) malloc((len + 1) * sizeof(char));
+	p = (char **) malloc((len + 1) * sizeof(char *));
 	if (p == NULL)
 	{
-		free(p);
-		return (NULL);
+		free(p), return (NULL);
 	}
 	for (j = 0; j < len; j++)
 	{
@@ -80,22 +78,24 @@ char **strtow(char *str)
 		p[j] = (char *) malloc((len_word + 1) * sizeof(char));
 		if (p[j] == NULL)
 		{
+			for (i = 0; i < j; i++)
+				free(p[i]);
+			free(p);
 			return (NULL);
 		}
-		flag = 0;
+		flag = 0, i = 0;
 		while (str[k] != '\0')
 		{
 			if (flag == 1 && str[k] == ' ')
 			{
-				p[j][k] = '\0';
+				p[j][i] = '\0', i++;
 				break;
 			}
 			if (str[k] != ' ')
 			{
-				p[j][k] = str[k];
-				flag = 1;
-			}
-			k++;
+				p[j][i] = str[k];
+				i++, flag = 1;
+			} k++;
 		}
 	}
 	p[len] = NULL;
