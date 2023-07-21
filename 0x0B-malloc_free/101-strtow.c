@@ -70,7 +70,8 @@ char **strtow(char *str)
 	p = (char **) malloc((len + 1) * sizeof(char *));
 	if (p == NULL)
 	{
-		free(p), return (NULL);
+		free(p);
+		return (NULL);
 	}
 	for (j = 0; j < len; j++)
 	{
