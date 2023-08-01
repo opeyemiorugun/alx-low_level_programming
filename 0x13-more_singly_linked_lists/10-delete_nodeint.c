@@ -4,7 +4,7 @@
  *
  * @head: linked list
  * @index: index starting from 0
- * Return 0 if failed, 1 if successful
+ * Return: 0 if failed, 1 if successful
  */
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
