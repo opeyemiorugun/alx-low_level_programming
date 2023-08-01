@@ -4,7 +4,7 @@
  *
  * @head: linked list
  * @index: index starting from 0
- * Return: 0 if failed, 1 if successful
+ * Return: -1 if failed, 1 if successful
  */
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
@@ -12,7 +12,7 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 	listint_t *current, *temp, *begin;
 
 	if (head == NULL || *head == NULL)
-		return (0);
+		return (-1);
 
 	current = *head;
 	begin = *head;
@@ -31,7 +31,7 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 			begin = begin->next;
 	}
 	if (current == NULL)
-		return (0);
+		return (-1);
 
 	temp = current->next;
 	free(current);
