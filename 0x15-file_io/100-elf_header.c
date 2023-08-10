@@ -40,7 +40,7 @@ void elf_magic(elfs magic)
 		if (magic.e_ident[2] == 'L' && magic.e_ident[3] == 'F')
 		{
 			printf("ElF Header:\n");
-			printf("Magic: ");
+			printf("  Magic:   ");
 			for (i = 0; i < 16; i++)
 			{
 				printf("%02x%c", magic.e_ident[i], i < 15 ? ' ' : '\n');
@@ -66,7 +66,7 @@ void elf_class(elfs class)
 		"ELF64"
 		};
 
-	printf("%-33s", "Class:");
+	printf("  %-35s", "Class:");
 	printf("%s\n", classes[class.e_ident[4]]);
 }
 /**
@@ -83,7 +83,7 @@ int elf_data(elfs data)
 		"2's complement, big-endian"
 		};
 
-	printf("%-33s", "Data:");
+	printf("  %-35s", "Data:");
 	printf("%s\n", datas[data.e_ident[5]]);
 
 	return (data.e_ident[5]);
@@ -100,7 +100,7 @@ void elf_version(elfs version)
 		"current"
 		};
 
-	printf("%-33s", "Version:");
+	printf("  %-35s", "Version:");
 	printf("%d (%s)\n", version.e_ident[6], versions[version.e_ident[6]]);
 }
 /**
@@ -132,7 +132,7 @@ void elf_osabi(elfs osabi)
 		"Startus Technologies OpenVOS"
 		};
 
-	printf("%-33s", "OS/ABI:");
+	printf("  %-35s", "OS/ABI:");
 	if (osabi.e_ident[7] < 19)
 		printf("%s\n", osabis[osabi.e_ident[7]]);
 	else
@@ -145,7 +145,7 @@ void elf_osabi(elfs osabi)
  */
 void elf_abi(elfs abi)
 {
-	printf("%-32s %u\n", "ABI Version:", abi.e_ident[8]);
+	printf("  %-34s %u\n", "ABI Version:", abi.e_ident[8]);
 }
 /**
  * elf_type -funciton that prints the type field from an elf header.
@@ -166,7 +166,7 @@ void elf_type(elfs type, int swap)
 	if (swap)
 		type.e_type = swap_bytes(type.e_type);
 
-	printf("%-33s", "Type:");
+	printf("  %-35s", "Type:");
 	printf("%s\n", types[type.e_type]);
 }
 /**
@@ -180,7 +180,7 @@ void elf_entry(elfs entry, int swap)
 	if (swap)
 		entry.e_entry = swap_bytes(entry.e_entry);
 
-	printf("%-33s", "Entry point address:");
+	printf("  %-35s", "Entry point address:");
 	printf("0x%x\n", entry.e_entry);
 }
 /**
