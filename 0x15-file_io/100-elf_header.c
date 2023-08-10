@@ -213,14 +213,14 @@ int main(int argc, char *argv[])
 
 	if (argc != 2)
 	{
-		write(STDERR_FILENO, "Usage: elf_header elf_filename\n", 50);
+		write(STDERR_FILENO, "Usage: elf_header elf_filename\n", 31);
 		exit(98);
 	}
 
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 	{
-		write(STDERR_FILENO, "Error while opening file\n", 36);
+		write(STDERR_FILENO, "Error while opening file\n", 26);
 		close(fd);
 		exit(98);
 	}
@@ -228,7 +228,7 @@ int main(int argc, char *argv[])
 	bytes_read = read(fd, &elf, sizeof(elfs));
 	if (bytes_read == -1)
 	{
-		write(STDERR_FILENO, "Error while reading file\n", 36);
+		write(STDERR_FILENO, "Error while reading file\n", 26);
 		close(fd);
 		exit(98);
 	}
