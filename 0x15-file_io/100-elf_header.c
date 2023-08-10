@@ -66,7 +66,7 @@ void elf_class(elfs class)
 		"ELF64"
 		};
 
-	printf("  Class:                             ");
+	printf("  %-35s", "Class:");
 	if (class.e_ident[4] < 3)
 		printf("%s\n", classes[class.e_ident[4]]);
 	else
@@ -86,7 +86,7 @@ int elf_data(elfs data)
 		"2's complement, big-endian"
 		};
 
-	printf("  Data:                             ");
+	printf("  %-35s", "Data:");
 	if (data.e_ident[5] < 3)
 		printf("%s\n", datas[data.e_ident[5]]);
 	else
@@ -108,7 +108,7 @@ void elf_version(elfs version)
 		"current"
 		};
 
-	printf("  Version:                             ");
+	printf("  %-35s", "Version:");
 	if (version.e_ident[6] < 2)
 		printf("%d (%s)\n", version.e_ident[6], versions[version.e_ident[6]]);
 	else
@@ -143,7 +143,7 @@ void elf_osabi(elfs osabi)
 		"Startus Technologies OpenVOS"
 		};
 
-	printf("  OS/ABI:                             ");
+	printf("  %-35s", "OS/ABI:");
 	if (osabi.e_ident[7] < 19)
 		printf("%s\n", osabis[osabi.e_ident[7]]);
 	else
@@ -177,7 +177,7 @@ void elf_type(elfs type, int swap)
 	if (swap)
 		type.e_type = swap_bytes(type.e_type);
 
-	printf("  Type:                             ");
+	printf("  %-35s", "Type:");
 	if (type.e_type < 5)
 		printf("%s\n", types[type.e_type]);
 	else
@@ -194,7 +194,7 @@ void elf_entry(elfs entry, int swap)
 	if (swap)
 		entry.e_entry = swap_bytes(entry.e_entry);
 
-	printf("  Entry:                             ");
+	printf("  %-35s", "Entry point address:");
 	printf("0x%x\n", entry.e_entry);
 }
 /**
@@ -220,7 +220,7 @@ int main(int argc, char *argv[])
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 	{
-		write(STDERR_FILENO, "Error while opening file\n", 26);
+		write(STDERR_FILENO, "Error while opening file\n", 36);
 		close(fd);
 		exit(98);
 	}
@@ -228,7 +228,7 @@ int main(int argc, char *argv[])
 	bytes_read = read(fd, &elf, sizeof(elfs));
 	if (bytes_read == -1)
 	{
-		write(STDERR_FILENO, "Error while reading file\n", 26);
+		write(STDERR_FILENO, "Error while reading file\n", 36);
 		close(fd);
 		exit(98);
 	}
