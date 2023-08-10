@@ -66,8 +66,11 @@ void elf_class(elfs class)
 		"ELF64"
 		};
 
-	printf("  %-35s", "Class:");
-	printf("%s\n", classes[class.e_ident[4]]);
+	printf("  Class:                             ");
+	if (classes.e_ident[4] < 3)
+		printf("%s\n", classes[class.e_ident[4]]);
+	else
+		printf("<unknown: %x>\n", class.e_ident[4]);
 }
 /**
  * elf_data -function that prints the data field of an elf header.
@@ -83,9 +86,14 @@ int elf_data(elfs data)
 		"2's complement, big-endian"
 		};
 
-	printf("  %-35s", "Data:");
-	printf("%s\n", datas[data.e_ident[5]]);
-
+	printf("  Data:                             ");
+	if (dats.e_ident[5] < 3)
+		printf("%s\n", datas[data.e_ident[5]]);
+	else
+	{
+		printf("<unknown: %x>\n", data.e_ident[4]);
+		return (getendianness());
+	}
 	return (data.e_ident[5]);
 }
 /**
@@ -100,8 +108,11 @@ void elf_version(elfs version)
 		"current"
 		};
 
-	printf("  %-35s", "Version:");
-	printf("%d (%s)\n", version.e_ident[6], versions[version.e_ident[6]]);
+	printf("  Version:                             ");
+	if (version.e_ident[6] < 2)
+		printf("%d (%s)\n", version.e_ident[6], versions[version.e_ident[6]]);
+	else
+		printf("<unknown: %x>\n", version.e_ident[6]);
 }
 /**
  * elf_osabi -function that prints the OS/ABI field from an elf header.
@@ -132,7 +143,7 @@ void elf_osabi(elfs osabi)
 		"Startus Technologies OpenVOS"
 		};
 
-	printf("  %-35s", "OS/ABI:");
+	printf("  OS/ABI:                             ");
 	if (osabi.e_ident[7] < 19)
 		printf("%s\n", osabis[osabi.e_ident[7]]);
 	else
@@ -166,8 +177,11 @@ void elf_type(elfs type, int swap)
 	if (swap)
 		type.e_type = swap_bytes(type.e_type);
 
-	printf("  %-35s", "Type:");
-	printf("%s\n", types[type.e_type]);
+	printf("  Type:                             ");
+	if (type.e_type < 5)
+		printf("%s\n", types[type.e_type]);
+	else
+		printf("<unknown: %x\n", type.e_type);
 }
 /**
  * elf_entry -function that prints the entry field from an elf header.
@@ -180,7 +194,7 @@ void elf_entry(elfs entry, int swap)
 	if (swap)
 		entry.e_entry = swap_bytes(entry.e_entry);
 
-	printf("  %-35s", "Entry point address:");
+	printf("  Entry:                             ");
 	printf("0x%x\n", entry.e_entry);
 }
 /**
