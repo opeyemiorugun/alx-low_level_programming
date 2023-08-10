@@ -67,7 +67,7 @@ void elf_class(elfs class)
 		};
 
 	printf("  Class:                             ");
-	if (classes.e_ident[4] < 3)
+	if (class.e_ident[4] < 3)
 		printf("%s\n", classes[class.e_ident[4]]);
 	else
 		printf("<unknown: %x>\n", class.e_ident[4]);
@@ -87,12 +87,12 @@ int elf_data(elfs data)
 		};
 
 	printf("  Data:                             ");
-	if (dats.e_ident[5] < 3)
+	if (data.e_ident[5] < 3)
 		printf("%s\n", datas[data.e_ident[5]]);
 	else
 	{
 		printf("<unknown: %x>\n", data.e_ident[4]);
-		return (getendianness());
+		return (get_endianness());
 	}
 	return (data.e_ident[5]);
 }
