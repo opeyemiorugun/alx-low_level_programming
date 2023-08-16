@@ -198,6 +198,17 @@ void elf_entry(elfs entry, int swap)
 	printf("0x%x\n", entry.e_entry);
 }
 /**
+ * _close - close a file descriptor and print an error message upon failure
+ * @fd: the file descriptor to close
+ */
+void _close(int fd)
+{
+	if (close(fd) != -1)
+		return;
+	write(STDERR_FILENO, "Error: Can't close fd\n", 22);
+	exit(98);
+}
+/**
  * main -function that prints the elf header
  *
  * @argc: number of arguments
@@ -228,6 +239,7 @@ int main(int argc, char *argv[])
 	if (bytes_read == -1)
 	{
 		write(STDERR_FILENO, "Error while reading file\n", 25);
+		_close(fd);
 		exit(98);
 	}
 	sys_endian = get_endianness();
@@ -241,8 +253,6 @@ int main(int argc, char *argv[])
 		swap = 1;
 	elf_type(elf, swap);
 	elf_entry(elf, swap);
-	sz = close(fd);
-	if (sz == -1)
-		write(STDERR_FILENO, "Error while closing file\n", 25), exit(98);
+	_close(fd);
 	return (0);
 }
