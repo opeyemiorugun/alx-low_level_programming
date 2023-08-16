@@ -219,7 +219,7 @@ int main(int argc, char *argv[])
 {
 	unsigned short elf_endian, sys_endian;
 	int swap = 0;
-	int fd, bytes_read, sz;
+	int fd, bytes_read;
 	elfs elf;
 
 	if (argc != 2)
