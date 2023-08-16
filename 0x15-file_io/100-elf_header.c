@@ -208,7 +208,7 @@ int main(int argc, char *argv[])
 {
 	unsigned short elf_endian, sys_endian;
 	int swap = 0;
-	int fd, bytes_read;
+	int fd, bytes_read, sz;
 	elfs elf;
 
 	if (argc != 2)
@@ -220,7 +220,7 @@ int main(int argc, char *argv[])
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 	{
-		write(STDERR_FILENO, "Error while opening file\n", 26);
+		write(STDERR_FILENO, "Error while opening file\n", 25);
 		close(fd);
 		exit(98);
 	}
@@ -228,9 +228,8 @@ int main(int argc, char *argv[])
 	bytes_read = read(fd, &elf, sizeof(elfs));
 	if (bytes_read == -1)
 	{
-		write(STDERR_FILENO, "Error while reading file\n", 26);
-		close(fd);
-		exit(98);
+		write(STDERR_FILENO, "Error while reading file\n", 25);
+		close(fd), exit(98);
 	}
 	sys_endian = get_endianness();
 	elf_magic(elf);
@@ -243,6 +242,8 @@ int main(int argc, char *argv[])
 		swap = 1;
 	elf_type(elf, swap);
 	elf_entry(elf, swap);
-	close(fd);
+	sz = close(fd);
+	if (sz == -1)
+		write(STDERR_FILENO, "Error while closing file\n", 25), exit(98);
 	return (0);
 }
