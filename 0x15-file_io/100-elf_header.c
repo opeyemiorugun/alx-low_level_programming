@@ -49,7 +49,7 @@ void elf_magic(elfs magic)
 	}
 	else
 	{
-		write(STDERR_FILENO, "Not an ELF file\n", 32);
+		dprintf(STDERR_FILENO, "Not an ELF file\n");
 		exit(98);
 	}
 }
@@ -203,10 +203,11 @@ void elf_entry(elfs entry, int swap)
  */
 void _close(int fd)
 {
-	if (close(fd) != -1)
-		return;
-	write(STDERR_FILENO, "Error: Can't close fd\n", 22);
-	exit(98);
+	if (close(fd) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+		exit(98);
+	}
 }
 /**
  * main -function that prints the elf header
@@ -224,22 +225,22 @@ int main(int argc, char *argv[])
 
 	if (argc != 2)
 	{
-		write(STDERR_FILENO, "Usage: elf_header elf_filename\n", 31);
+		dprintf(STDERR_FILENO, "Usage: elf_header elf_filename\n");
 		exit(98);
 	}
 
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 	{
-		write(STDERR_FILENO, "Error while opening file\n", 25);
+		dprintf(STDERR_FILENO, "Error: Can't read file %s\n", argv[1]);
 		exit(98);
 	}
 
 	bytes_read = read(fd, &elf, sizeof(elfs));
 	if (bytes_read == -1)
 	{
-		write(STDERR_FILENO, "Error while reading file\n", 25);
 		_close(fd);
+		dprintf(STDERR_FILENO, "Error: `%s`: No such file\n", argv[1]);
 		exit(98);
 	}
 	sys_endian = get_endianness();
