@@ -221,7 +221,6 @@ int main(int argc, char *argv[])
 	if (fd == -1)
 	{
 		write(STDERR_FILENO, "Error while opening file\n", 25);
-		close(fd);
 		exit(98);
 	}
 
@@ -229,7 +228,7 @@ int main(int argc, char *argv[])
 	if (bytes_read == -1)
 	{
 		write(STDERR_FILENO, "Error while reading file\n", 25);
-		close(fd), exit(98);
+		exit(98);
 	}
 	sys_endian = get_endianness();
 	elf_magic(elf);
